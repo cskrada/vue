@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue</title>
+</head>
+<body>
+
+	<!-- main: se relaciona con mi objeto Vue
+		v-for: es un foreach de vue 
+		v-model: agrega nombre de manera dinamica
+		v-on:keyup.enter: al soltar la tecla enter se va a ejecutar el metodo AddName dentro de mi objeto
+	 -->
+
+	<div id="main">
+		<ul>
+			<li v-for="item in people" v-text="item"></li>
+		</ul>
+		<input type="text" v-model="name" v-on:keyup.enter="addName">
+	</div>
+
+
+
+
+	<!-- cdnjs -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+
+	<script type="text/javascript">
+		// de esta manera se crea un objeto vue
+		new Vue({
+			// con este objeto vinculamos este objeto con un elemento html
+			el: '#main',
+			data: {
+				// creamos un array de personas
+				people: ['linda', 'francheska', 'nestor', 'andrea']
+			},
+			// lo colocamos de forma vacia porque es la clave para vincular la caja de texto con mi objeto vue
+			name: '',
+			// Crea metodo
+			methods: {
+				addName: function(){
+					this.people.push(this.name); //agrega todo lo que esta adentro de la caja de texto llamada name
+					this.name = ''; //luego de que lo agregues, se colocara vacio
+				}
+			}
+		});
+	</script>
+	
+</body>
+</html>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script> -->
+

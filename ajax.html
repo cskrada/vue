@@ -29,7 +29,7 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.0/vue-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
 	<script type="text/javascript">	
 		//var urlUsers = 'https://randomuser.me/api/?results=10';
         var urlUsers = 'https://jsonplaceholder.typicode.com/users';
@@ -45,8 +45,8 @@
 
 			methods: {
 				getUsers: function() {
-					this.$http.get(urlUsers).then(function(response){
-						this.lists = response.data;
+					axios.get(urlUsers).then(response => {
+						this.lists = response.data
 					});
 				}
 			}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>V-Show</title>
+</head>
+<body>
+	<div id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Suscribete a nuestro boletin</h3>
+				</div>
+				<div class="col-md-5">
+					<input type="text" class="form-control" v-model="email">
+				</div>
+				<div class="col-md-1">
+					<input type="submit" class="btn btn-primary" v-show="email">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data:{
+				email: ''
+			}
+		});
+	</script>
+</body>
+</html>
+
+<!-- v-show: muestra condicionalmente algo Ej: Existe email? SI porque esta en el objeto declarado y si esta vacio es false entonces no se va a mostrar y si hay texto es Tru y va a aparecer el boton -->

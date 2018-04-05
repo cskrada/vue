@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>V-if-else-template</title>
+</head>
+<body>
+
+	<div id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5" >
+					<template v-if="!message">
+						<h3>Escribe tu sugerencia</h3>
+						<p>El personal de soporte le dara respuesta dentro de 24hr</p>
+						<p><em>Puedes comunicarte en Twitter</em></p>
+					</template>
+					<h3 v-else="message">Presiona ENTER para enviar</h3>
+					<textarea v-model="message" class="form-control"></textarea>
+					
+				</div>
+				<div class="col-md-7" style="background: #ECECEC">
+					<h3>JSON</h3>
+					<pre>
+						{{ data }}
+					</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#main',
+			data:{
+				message: ''
+			}
+		});
+
+	</script>
+</body>
+</html>
+
+<!-- template: ayuda a anidar las condicionales mientras que v-show seria para una condicion unica.
+v-if: si inicialmente la condicion es falsa no va a renderizar la pag
+v-show: por lo general representa el mayor tiempo de carga  -->

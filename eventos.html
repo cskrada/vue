@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>eventos Vue</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div id="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2>Eventos en VUEjs</h2>
+				</div>
+				<div class="col-xs-4">
+					<form v-on:submit.prevent="addName">
+					<div class="input-group">
+						<input type="text" class="form-control" v-model="name">
+						<span class="input-group-btn">
+							<input type="submit" class="btn btn-default" value="add">
+						</span>
+					</div>
+					</form>
+					<hr>
+					<ul class="list-group">
+						<li class="list-group-item" v-for="item in people" v-text="item"></li>
+					</ul>
+				</div>
+				<div class="col-xs-4">
+					<!-- NUM += 1 este operador es acumulativa -->
+					<button v-on:click="num += 1">
+					{{ num }} <i class="glyphicon glyphicon-thumbs-up"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el : '#main',
+			data : {
+				people: ['Linda', 'Isabella', 'abel', 'Diana'],
+				name : '',
+				num : 0,
+			},
+			methods : {
+				addName: function(){
+					// this.people.unshift(this.name);
+					this.people.push(this.name);
+					this.name = '';
+				}
+			}
+		});
+	</script>	
+</body>
+</html>
+
+<!--
+<input type="text" class="form-control" v-model="name" v-on:keyup.enter="addName">
+	<span class="input-group-btn">
+<input type="button" class="btn btn-default" value="add" v-on:click="addName">
+
+v-on:keyup.enter : keyup, cuando soltemos un tecla se ejecutara el evento y .enter es la tecla
+v-on:click es cuando se ejecuta el evento haciendo 
+
+this.people.unshift(this.name); te agrega un elemento arriba de la lista
+this.people.push(this.name); mientras que esta funcion de javascript la agrega de ultimo
+-->
